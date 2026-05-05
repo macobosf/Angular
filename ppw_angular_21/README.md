@@ -117,17 +117,17 @@ ng config -g cli.packageManager
 
 ## Evidencias
 
-![Version angular](/src/evidencias/assets/Version-Angular.png)
+![Version angular](/evidencias/assets/Version-Angular.png)
 **Version de angular desde terminal**
 
 
-![Creacion](/src/evidencias/assets/Proceso-Creacion.png)
+![Creacion](/evidencias/assets/Proceso-Creacion.png)
 **Proceso de creacion de proyecto**
 
-![Version angular](/src/evidencias/assets/Pagina-Bienvenida.png)
+![Version angular](/evidencias/assets/Pagina-Bienvenida.png)
 **Pagina de bienvenida de Angular**
 
-![Home Page](/src/evidencias/assets/Home-Page.png)
+![Home Page](/evidencias/assets/Home-Page.png)
 **Proyecto listo para crecer**
 
 ## Additional Resources
