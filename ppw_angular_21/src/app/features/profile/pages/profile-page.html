@@ -1,0 +1,33 @@
+<!-- Datos personales: fullName es un computed derivado de firstName + lastName -->
+<h1>{{ fullName() }}</h1>
+<p>Edad: {{ age() }}</p>
+
+<!-- Categoría etaria: @switch evita múltiples @if anidados para valores discretos -->
+@switch (ageCategory()) {
+  @case ('minor') {
+    <p>Menor de edad</p>
+  }
+  @case ('young') {
+    <p>Joven</p>
+  }
+  @case ('adult') {
+    <p>Adulto</p>
+  }
+  @default {
+    <p>Senior</p>
+  }
+}
+
+<!-- Lista de habilidades: @else maneja el estado vacío sin un componente adicional -->
+@if (skills().length > 0) {
+  <ul>
+    @for (skill of skills(); track skill) {
+      <li>{{ skill }}</li>
+    }
+  </ul>
+} @else {
+  <p>No hay habilidades registradas.</p>
+}
+
+<!-- Actualiza el estado de las signals con nuevos valores de ejemplo -->
+<button type="button" (click)="changeData()">Cambiar datos</button>
