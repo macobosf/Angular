@@ -1,0 +1,18 @@
+<footer class="footer">
+
+  <!-- UpperCasePipe: convierte el autor a mayusculas -->
+  <p class="footer__author">{{ author() | uppercase }}</p>
+
+  <!-- TitleCasePipe: primera letra de cada palabra en mayuscula -->
+  <p class="footer__version">{{ version() | titlecase }}</p>
+
+  <!-- SlicePipe: muestra solo los primeros 40 caracteres de la descripcion -->
+  <p class="footer__desc">{{ description() | slice: 0 : 40 }}…</p>
+
+  <!-- CurrencyPipe: formatea el precio como moneda -->
+  <p class="footer__price">Suscripcion: {{ price() | currency: 'USD' }}</p>
+
+  <!-- DatePipe: muestra la fecha actual con formato legible -->
+  <p class="footer__date">{{ currentDate() | date: 'fullDate' }}</p>
+
+</footer>
