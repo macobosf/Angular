@@ -7,10 +7,10 @@
   <p class="footer__version">{{ version() | titlecase }}</p>
 
   <!-- SlicePipe: muestra solo los primeros 40 caracteres de la descripcion -->
-  <p class="footer__desc">{{ description() | slice: 0 : 40 }}…</p>
+  <p class="footer__desc">{{ description() | slice: 0 : 80 }}…</p>
 
-  <!-- CurrencyPipe: formatea el precio como moneda -->
-  <p class="footer__price">Suscripcion: {{ price() | currency: 'USD' }}</p>
+  <!-- EmailPipe: enmascara el correo electronico del autor -->
+  <p class="footer__email">Contacto: {{ email() | email }}</p>
 
   <!-- DatePipe: muestra la fecha actual con formato legible -->
   <p class="footer__date">{{ currentDate() | date: 'fullDate' }}</p>
