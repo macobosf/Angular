@@ -1,19 +1,48 @@
-<section class="detail-page">
-  <h1 class="detail-page__title">Detalle del estudiante</h1>
+<!--
+  Página de detalle de un estudiante.
+
+  Recibe el parámetro :id desde la URL a través de ActivatedRoute
+  (ver student-detail-page.ts) y lo muestra como dato destacado.
+  flex flex-col gap-5 apila título, dato y botón de retorno con
+  separación uniforme de 1.25rem sin necesidad de márgenes individuales.
+-->
+<section class="flex flex-col gap-5">
+
+  <h1 class="text-3xl font-bold tracking-tight text-slate-900">Detalle del estudiante</h1>
 
   <!--
-    id es una propiedad de la clase, leída con ActivatedRoute.
-    {{ id }} muestra el valor del parámetro :id de la URL.
+    Caja de dato destacado con acento visual izquierdo.
+
+    border-l-4 border-l-brand crea una franja de 4px en el color de marca
+    que guía la mirada hacia el dato clave sin usar negrita adicional ni
+    un icono. Es un patrón de UI ampliamente reconocido para destacar
+    información contextual dentro de una tarjeta neutra.
+
+    El borde exterior (border border-slate-200) enmarca el bloque sin
+    sobrecargarlo visualmente; bg-white lo separa del fondo bg-slate-100
+    del shell.
   -->
-  <p class="detail-page__id">
+  <p class="bg-white px-4 py-3 rounded-lg border border-slate-200 border-l-4 border-l-brand text-slate-900">
     ID recibido por la ruta: <strong>{{ id }}</strong>
   </p>
 
   <!--
-    routerLink="/students" → enlace de retorno al listado.
-    No recarga la página: Angular intercepta el clic y navega internamente.
+    Enlace de retorno con estilo "outline" y efecto fill en hover.
+
+    Se usa <a> con routerLink en lugar de <button> porque la acción es
+    una navegación, no una operación de formulario: semánticamente correcto
+    y accesible por teclado sin configuración adicional.
+
+    inline-block w-fit evita que el enlace ocupe el ancho completo de la
+    columna. hover:bg-brand hover:text-white invierten los colores al pasar
+    el cursor, creando el efecto "fill" que refuerza la interactividad.
+    transition suaviza el cambio de color en 150ms (valor por defecto de Tailwind).
   -->
-  <a class="btn-back" routerLink="/students">
+  <a
+    class="inline-block w-fit border-2 border-brand text-brand px-5 py-2 rounded-md no-underline font-medium transition hover:bg-brand hover:text-white"
+    routerLink="/students"
+  >
     ← Volver al listado
   </a>
+
 </section>

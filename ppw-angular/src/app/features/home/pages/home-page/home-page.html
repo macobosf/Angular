@@ -1,2 +1,58 @@
-<h1>HOME PAGE</h1>
-<app-hero></app-hero>
+<!--
+  Página de inicio.
+
+  space-y-8 genera ritmo vertical uniforme entre el hero y la sección de
+  acciones sin necesidad de un contenedor flex explícito. Es la forma
+  preferida de Tailwind para apilar bloques con separación consistente
+  cuando no se requiere alineación en el eje cruzado.
+-->
+<section class="space-y-8">
+
+  <!-- Componente hero reutilizable, definido en features/home/components -->
+  <app-hero />
+
+  <!--
+    Sección de acciones primarias de la página.
+
+    Se muestran dos botones con el mismo resultado funcional para contrastar
+    dos enfoques de estilo:
+      - btn-primary: clase CSS global definida en styles.css (enfoque clásico).
+      - segundo botón: estilo inline con utilidades Tailwind (enfoque utility-first).
+
+    justify-center centra el grupo horizontalmente dentro del <main>.
+    gap-4 separa los botones sin necesidad de márgenes individuales.
+  -->
+  <div class="flex justify-center gap-4 py-4">
+
+    <!--
+      Botón con clase CSS global.
+      Navega programáticamente usando el Router inyectado en el componente.
+      Se conserva para comparar el enfoque con clases CSS propias frente
+      al botón Tailwind que sigue a continuación.
+    -->
+    <button class="btn-primary" (click)="goToStudentsPage()">
+      Ver Estudiantes →
+    </button>
+
+    <!--
+      Botón estilo "outline" implementado exclusivamente con Tailwind.
+
+      Patrón "fill on hover": en estado normal muestra solo el borde y el
+      texto en color de marca; al pasar el cursor el fondo se rellena y el
+      texto cambia a blanco. transition-colors anima únicamente las
+      propiedades de color para mantener la transición ligera (200ms).
+
+      border-brand y text-brand consumen el token --color-brand definido
+      en @theme de styles.css, por lo que un cambio de paleta se propaga
+      automáticamente a este botón sin tocar el template.
+    -->
+    <button
+      type="button"
+      class="w-fit rounded-md border-2 border-brand bg-transparent px-5 py-2.5 font-medium text-brand transition-colors duration-200 hover:bg-brand hover:text-white cursor-pointer"
+    >
+      Ver Estudiantes →
+    </button>
+
+  </div>
+
+</section>
