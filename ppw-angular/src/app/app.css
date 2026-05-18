@@ -1,0 +1,13 @@
+/*
+  :host representa el elemento raíz del componente App en el DOM.
+
+  Convierte al componente raíz en un contenedor flex vertical que ocupa
+  como mínimo toda la altura de la pantalla. Esto garantiza que el
+  sticky-footer funcione correctamente incluso cuando el contenido de
+  la página es escaso, sin depender únicamente del <div> del template.
+*/
+:host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
