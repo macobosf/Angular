@@ -1,29 +1,9 @@
-<!--
-  Shell raíz de la aplicación.
-
-  Implementa el patrón "sticky footer": el <div> externo ocupa al menos toda
-  la altura de la pantalla (min-h-screen) y organiza sus hijos en columna
-  (flex-col). El <main> crece con flex-1 para empujar el footer hacia abajo
-  incluso cuando el contenido de la página es escaso.
-
-  bg-slate-100: fondo neutro que crea contraste visual con los cards blancos
-  que aparecen dentro de cada página, sin recurrir a un color de marca.
--->
+<!-- Patrón sticky footer: flex-col + min-h-screen empuja el footer al fondo cuando hay poco contenido -->
 <div class="flex min-h-screen flex-col bg-slate-100">
 
   <app-header />
 
-  <!--
-    Contenedor de contenido activo.
-
-    max-w-5xl limita el ancho a ~1024px para mantener líneas legibles en
-    monitores grandes. mx-auto centra el bloque horizontalmente cuando el
-    viewport supera ese máximo. px-6 py-8 proveen aire interior consistente
-    en todas las páginas sin que cada una deba definir su propio espaciado.
-
-    El <router-outlet> renderiza aquí el componente de la ruta activa;
-    este <main> actúa como marco común para todas las vistas.
-  -->
+  <!-- max-w-5xl limita el ancho a ~1024px; mx-auto lo centra; flex-1 ocupa el espacio entre header y footer -->
   <main class="flex-1 mx-auto w-full max-w-5xl px-6 py-8">
     <router-outlet />
   </main>

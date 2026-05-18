@@ -1,20 +1,9 @@
 <header class="app-header">
 
-  <!-- Nombre de la aplicación como señal reactiva, transformado a mayúsculas con el pipe uppercase -->
   <span class="app-header__brand">{{ brand() | uppercase }}</span>
 
-  <!--
-    Barra de navegación principal.
-
-    Cada <a> usa routerLink para navegación interna sin recargar la página
-    y routerLinkActive para aplicar la clase nav-link--active al enlace
-    de la ruta activa.
-
-    [routerLinkActiveOptions]="{exact:true}" en el enlace raíz evita que
-    '/' quede marcado como activo cuando se navega a rutas hijas como
-    '/students' o '/layouts', ya que todas comienzan con '/'.
-  -->
   <nav class="app-header__nav">
+    <!-- exact:true evita que '/' quede activo al navegar a rutas hijas como /students -->
     <a class="nav-link" routerLink="/"
       routerLinkActive="nav-link--active"
       [routerLinkActiveOptions]="{exact:true}">Inicio</a>
@@ -22,7 +11,6 @@
     <a class="nav-link" routerLink="/students"
       routerLinkActive="nav-link--active">Estudiantes</a>
 
-    <!-- Enlace a la página de demostración de layouts con Tailwind CSS -->
     <a class="nav-link" routerLink="/layouts"
       routerLinkActive="nav-link--active">Layouts</a>
   </nav>

@@ -1,54 +1,17 @@
-<!--
-  Página de listado de estudiantes.
-
-  Reemplaza la hoja de estilos BEM (.students-page, .students-list, etc.)
-  por utilidades Tailwind directamente en el markup. space-y-4 distribuye
-  el título, el subtítulo y la lista con separación uniforme de 1rem sin
-  necesidad de un flex contenedor adicional.
--->
+<!-- space-y-4: separa título, subtítulo y lista sin necesidad de márgenes individuales -->
 <section class="space-y-4">
 
-  <!--
-    Título principal de la vista.
-    tracking-tight mejora la legibilidad en tamaños de fuente grandes al
-    reducir levemente el espacio entre caracteres.
-  -->
   <h1 class="text-3xl font-bold tracking-tight text-slate-900">Estudiantes</h1>
 
-  <!--
-    Texto de instrucción secundario.
-    text-slate-600 aporta suficiente contraste WCAG frente al fondo claro
-    sin competir visualmente con el título.
-  -->
   <p class="text-slate-600">Selecciona un estudiante para ver su detalle.</p>
 
-  <!--
-    Lista de estudiantes en formato card.
-
-    list-none p-0 elimina los estilos por defecto del navegador para <ul>.
-    flex flex-col gap-3 reemplaza el uso de margin-bottom entre ítems:
-    el espacio se define una sola vez en el contenedor, no en cada hijo.
-  -->
+  <!-- list-none p-0: elimina bullets y padding por defecto del navegador -->
   <ul class="flex flex-col gap-3 list-none p-0">
 
-    <!--
-      @for con control flow de Angular 17+.
-      track student.id permite que el motor de renderizado reutilice nodos
-      DOM existentes al actualizar la lista, en lugar de recrearlos todos.
-    -->
+    <!-- track student.id: el motor de Angular reutiliza nodos DOM en lugar de recrearlos -->
     @for (student of students(); track student.id) {
       <li>
-        <!--
-          Cada ítem es un <a> con display block para que toda el área de la
-          card sea zona de clic, no solo el texto.
-
-          El efecto hover (bg-slate-50 + border-brand) indica interactividad
-          sin recurrir a JavaScript. transition anima todos los cambios de
-          propiedad para una respuesta visual suave.
-
-          text-brand y border-brand usan el token de color definido en
-          @theme de styles.css, garantizando coherencia con la marca.
-        -->
+        <!-- block: hace que toda el área del card sea zona de clic, no solo el texto -->
         <a
           class="block px-4 py-3 bg-white border border-slate-200 rounded-lg text-brand no-underline font-medium transition hover:bg-slate-50 hover:border-brand"
           [routerLink]="['/students', student.id]"
@@ -57,12 +20,7 @@
         </a>
       </li>
     } @empty {
-      <!--
-        Estado vacío: se renderiza automáticamente cuando el signal
-        students() devuelve un array de longitud 0.
-        italic + text-slate-500 diferencia visualmente este estado del
-        contenido real para que no parezca un ítem de la lista.
-      -->
+      <!-- Se renderiza automáticamente cuando students() tiene longitud 0 -->
       <li class="italic text-slate-500">No hay estudiantes disponibles.</li>
     }
 

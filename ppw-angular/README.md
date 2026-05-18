@@ -36,7 +36,7 @@ Implementa el patrón **sticky footer**: el contenedor raíz ocupa como mínimo 
 | `flex-1 mx-auto w-full max-w-5xl` | Contenido centrado con ancho máximo |
 | `px-6 py-8` | Espaciado interior uniforme en todas las páginas |
 
-> 📸 _Agregar captura del shell completo (header + main + footer)_
+![Shell principal](src/assets/shell_principal.png)
 
 ---
 
@@ -56,7 +56,7 @@ El segundo botón aplica el patrón **fill on hover**: en reposo muestra solo bo
 | `transition-colors duration-200` | Animación suave solo en propiedades de color |
 | `hover:bg-brand hover:text-white` | Fill effect al pasar el cursor |
 
-> 📸 _Agregar captura de la HomePage con los dos botones_
+![HomePage](src/assets/homepage.png)
 
 ---
 
@@ -75,7 +75,7 @@ Lista de estudiantes en formato **card**. Cada ítem es un `<a>` con `display: b
 | `hover:bg-slate-50 hover:border-brand` | Retroalimentación visual en hover |
 | `italic text-slate-500` | Estado vacío diferenciado visualmente |
 
-> 📸 _Agregar captura de la lista de estudiantes_
+![StudentsPage](src/assets/estudiantes.png)
 
 ---
 
@@ -93,7 +93,7 @@ Muestra el ID del estudiante recibido por la URL en una caja con **acento visual
 | `inline-block w-fit` | El enlace solo ocupa el ancho de su contenido |
 | `hover:bg-brand hover:text-white` | Fill effect en el botón de retorno |
 
-> 📸 _Agregar captura del detalle de un estudiante_
+![StudentDetailPage](<src/assets/Captura desde 2026-05-17 22-38-22.png>)
 
 ---
 
@@ -118,9 +118,13 @@ Layout responsivo escalonado: **1 columna en móvil → 2 en sm (≥640px) → 4
 | `shadow-lg` | Sombra grande que eleva el card |
 | `opacity-80 / opacity-90` | Jerarquía visual sin cambiar el color |
 
-> 📸 _Agregar captura del grid de 4 columnas (escritorio)_
+**Escritorio (4 columnas):**
 
-> 📸 _Agregar captura del grid de 4 columnas (móvil / 1 columna)_
+![Grid 4 columnas escritorio](<src/assets/Captura desde 2026-05-17 22-55-07.png>)
+
+**Móvil (1 columna):**
+
+![Grid 4 columnas móvil](<src/assets/Captura desde 2026-05-17 22-55-22.png>)
 
 ---
 
@@ -136,7 +140,7 @@ Layout de **panel administrativo**: columna fija de 240px para el sidebar + áre
 
 > `minmax(0, 1fr)` en lugar de `1fr` previene desbordamiento cuando el contenido tiene texto largo sin espacios.
 
-> 📸 _Agregar captura del grid con sidebar (escritorio)_
+![Grid con sidebar](<src/assets/Captura desde 2026-05-17 22-56-18.png>)
 
 ---
 
@@ -150,13 +154,13 @@ Distribución **simétrica en 3 columnas** activa a partir de 768px. Usa gradien
 | `gap-6` | Separación de 1.5rem entre celdas |
 | `bg-linear-to-tr` | Gradiente de abajo-izquierda a arriba-derecha |
 
-> 📸 _Agregar captura del grid de 3 columnas_
+![Grid 3 columnas](<src/assets/Captura desde 2026-05-17 22-56-36.png>)
 
 ---
 
 ### Flex: carrusel horizontal
 
-Lista horizontal con **scroll lateral controlado**. `overflow-x-auto` habilita el desplazamiento solo cuando el contenido supera el ancho del contenedor, sin afectar el layout vertical. `min-w-[16rem]` + `shrink-0` en cada card garantizan que las tarjetas no se compriman independientemente del viewport.
+Lista horizontal con **scroll lateral controlado**. `overflow-x-auto` habilita el desplazamiento solo cuando el contenido supera el ancho del contenedor. `min-w-[16rem]` + `shrink-0` en cada card garantizan que las tarjetas no se compriman independientemente del viewport.
 
 | Clase Tailwind | Efecto |
 |---|---|
@@ -164,15 +168,19 @@ Lista horizontal con **scroll lateral controlado**. `overflow-x-auto` habilita e
 | `min-w-[16rem]` | Ancho mínimo fijo de 256px por card |
 | `shrink-0` | Impide que el card se comprima dentro del flex |
 
-> 📸 _Agregar captura del carrusel horizontal (pantalla completa)_
+**Escritorio:**
 
-> 📸 _Agregar captura del carrusel horizontal (móvil con scroll visible)_
+![Flex carrusel escritorio](<src/assets/Captura desde 2026-05-17 22-56-57.png>)
+
+**Móvil (scroll activo):**
+
+![Flex carrusel móvil](<src/assets/Captura desde 2026-05-17 22-58-20.png>)
 
 ---
 
 ### Flex: wrap con alineación
 
-Los cards **saltan de fila automáticamente** cuando no caben en el ancho disponible, a diferencia del carrusel que fuerza el scroll. `w-56` (224px) en cada card determina implícitamente cuántos caben por fila. `items-start` evita que cards de alturas distintas se estiren para equipararse. `ring-1` es una alternativa a `border` que no afecta el box model.
+Los cards **saltan de fila automáticamente** cuando no caben en el ancho disponible. `w-56` (224px) en cada card determina implícitamente cuántos caben por fila. `items-start` evita que cards de alturas distintas se estiren. `ring-1` es una alternativa a `border` que no afecta el box model.
 
 | Clase Tailwind | Efecto |
 |---|---|
@@ -182,26 +190,26 @@ Los cards **saltan de fila automáticamente** cuando no caben en el ancho dispon
 | `shadow-xl` | Sombra extra prominente |
 | `ring-1 ring-slate-200` | Borde alternativo que no altera el box model |
 
-> 📸 _Agregar captura del flex wrap (escritorio, varias filas)_
+![Flex wrap](<src/assets/Captura desde 2026-05-17 22-58-54.png>)
 
 ---
 
 ### Extra 1 — Grid auto-fill responsive
 
-Grid **completamente responsivo sin breakpoints manuales**. `repeat(auto-fill, minmax(200px, 1fr))` delega al navegador el cálculo de cuántas columnas caben: cada columna tiene un mínimo de 200px y crece proporcionalmente hasta llenar la fila. Funciona dentro de cualquier contenedor sin importar su ancho, incluso dentro de un sidebar o modal.
-
-```
-grid-cols-[repeat(auto-fill,minmax(200px,1fr))]
-```
+Grid **completamente responsivo sin breakpoints manuales**. `repeat(auto-fill, minmax(200px, 1fr))` delega al navegador el cálculo de cuántas columnas caben: cada columna tiene un mínimo de 200px y crece proporcionalmente hasta llenar la fila. Funciona dentro de cualquier contenedor sin importar su ancho.
 
 | Clase Tailwind | Efecto |
 |---|---|
 | `grid-cols-[repeat(auto-fill,minmax(200px,1fr))]` | Columnas automáticas con mínimo 200px |
 | `gap-4` | Separación de 1rem entre celdas |
 
-> 📸 _Agregar captura del grid auto-fill (escritorio)_
+**Escritorio:**
 
-> 📸 _Agregar captura del grid auto-fill (móvil, 1 columna)_
+![Grid auto-fill escritorio](<src/assets/Captura desde 2026-05-17 22-59-25.png>)
+
+**Móvil (2 columnas automáticas):**
+
+![Grid auto-fill móvil](<src/assets/Captura desde 2026-05-17 22-59-40.png>)
 
 ---
 
@@ -209,27 +217,25 @@ grid-cols-[repeat(auto-fill,minmax(200px,1fr))]
 
 Define una **plantilla de página completa** usando `grid-template-areas`. Cada zona (header, sidebar, main, footer) se nombra en la plantilla y se asigna con `[grid-area:nombre]`, desacoplando el orden en el HTML del orden visual. En móvil todas las zonas se apilan; en `lg` se activa la distribución de 2 columnas.
 
-```
-'header  header'
-'sidebar main  '
-'footer  footer'
-```
-
 | Clase Tailwind | Efecto |
 |---|---|
 | `[grid-template-areas:'...']` | Valor arbitrario con plantilla de áreas |
 | `lg:grid-cols-[200px_1fr]` | 2 columnas activas en pantallas ≥ 1024px |
 | `[grid-area:header]` | Asigna el elemento a la zona header |
 
-> 📸 _Agregar captura del grid con áreas nombradas (escritorio)_
+**Escritorio (sidebar + main en fila):**
 
-> 📸 _Agregar captura del grid con áreas nombradas (móvil, apilado)_
+![Grid áreas nombradas escritorio](<src/assets/Captura desde 2026-05-17 23-00-20.png>)
+
+**Móvil (zonas apiladas):**
+
+![Grid áreas nombradas móvil](<src/assets/Captura desde 2026-05-17 23-00-07.png>)
 
 ---
 
 ### Extra 3 — Flex justify-between
 
-Simula una **barra de navegación**: `justify-between` empuja el logotipo al inicio del eje principal y las acciones al final, distribuyendo todo el espacio entre ellos. Es el patrón estándar para navbars y toolbars. `items-center` alinea verticalmente todos los elementos al centro. `bg-white/10` crea botones fantasma sobre el fondo oscuro sin un token de color adicional.
+Simula una **barra de navegación**: `justify-between` empuja el logotipo al inicio del eje principal y las acciones al final. Es el patrón estándar para navbars y toolbars. `bg-white/10` crea botones fantasma sobre el fondo oscuro sin un token de color adicional.
 
 | Clase Tailwind | Efecto |
 |---|---|
@@ -237,13 +243,13 @@ Simula una **barra de navegación**: `justify-between` empuja el logotipo al ini
 | `bg-white/10` | Blanco al 10% de opacidad para botones fantasma |
 | `bg-brand` | Token de marca para el enlace activo |
 
-> 📸 _Agregar captura del flex justify-between_
+![Flex justify-between](<src/assets/Captura desde 2026-05-17 23-00-50.png>)
 
 ---
 
 ### Extra 4 — Grid 2 col con card destacado
 
-Grid de 2 columnas donde el primer card usa `col-span-2` para **ocupar ambas columnas**, creando jerarquía visual que comunica que es el elemento más importante de la sección (KPI principal, banner o anuncio). Los cards secundarios de 1 columna conviven en la fila siguiente sin necesidad de anidar grids.
+Grid de 2 columnas donde el primer card usa `col-span-2` para **ocupar ambas columnas**, creando jerarquía visual que comunica que es el elemento más importante de la sección. Los cards secundarios de 1 columna conviven en la fila siguiente sin necesidad de anidar grids.
 
 | Clase Tailwind | Efecto |
 |---|---|
@@ -251,7 +257,7 @@ Grid de 2 columnas donde el primer card usa `col-span-2` para **ocupar ambas col
 | `col-span-2` | El card ocupa ambas columnas del grid |
 | `bg-linear-to-r from-brand to-sky-500` | Gradiente horizontal con color de marca |
 
-> 📸 _Agregar captura del grid 2 col con card destacado_
+![Grid 2 col card destacado](<src/assets/Captura desde 2026-05-17 23-01-11.png>)
 
 ---
 
